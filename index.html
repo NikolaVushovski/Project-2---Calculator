@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-wrapper">
+        <div class="corner-themes">
+            <button class="theme-btn corner tl" data-theme="red-velvet">Red & Velvet</button>
+            <button class="theme-btn corner tr" data-theme="blue-black">Blue & Black</button>
+            <button class="theme-btn corner bl" data-theme="yellow-orange">Yellow & Orange</button>
+            <button class="theme-btn corner br" data-theme="pink-velvet">Pink & Velvet</button>
+        </div>
+        <div class="calculator">
+            
+        <div class="display">
+            <input type="text" id="display" readonly>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn clear" data-value="C">C</button>
+            <button class="btn clear-entry" data-value="CE">CE</button>
+            <button class="btn scientific-toggle" id="scientific-toggle">Scientific</button>
+            <button class="btn operator" data-value="/">÷</button>
+            
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn operator" data-value="*">×</button>
+            
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn operator" data-value="-">-</button>
+            
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn operator" data-value="+">+</button>
+            
+            <button class="btn number" data-value="0">0</button>
+            <button class="btn decimal" data-value=".">.</button>
+            <button class="btn equals" data-value="=">=</button>
+            
+            <!-- Scientific buttons (hidden by default) -->
+            <div class="scientific-buttons" id="scientific-buttons">
+                <button class="btn scientific" data-value="sin(">sin</button>
+                <button class="btn scientific" data-value="cos(">cos</button>
+                <button class="btn scientific" data-value="tan(">tan</button>
+                <button class="btn scientific" data-value="log(">log</button>
+                <button class="btn scientific" data-value="ln(">ln</button>
+                <button class="btn scientific" data-value="sqrt(">√</button>
+                <button class="btn scientific" data-value="^2">x²</button>
+                <button class="btn scientific" data-value="^3">x³</button>
+                <button class="btn scientific" data-value="^">x^y</button>
+                <button class="btn scientific" data-value="pi">π</button>
+                <button class="btn scientific" data-value="e">e</button>
+                <button class="btn scientific" data-value="!">n!</button>
+            </div>
+        </div>
+        
+        <div class="history">
+            <h3>History</h3>
+            <div id="history-list"></div>
+            <button class="btn clear-history" id="clear-history">Clear History</button>
+        </div>
+    </div>
+    
+    </div> <!-- /.calculator-wrapper -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+:root {
+    --bg-color: #f5f5f5;
+    --display-bg: #ffffff;
+    --button-bg: #e0e0e0;
+    --button-hover: #d0d0d0;
+    --operator-bg: #ff9500;
+    --operator-hover: #e68600;
+    --equals-bg: #ff9500;
+    --equals-hover: #e68600;
+    --text-color: #000000;
+    --border-color: #cccccc;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Requested color palettes */
+[data-theme="red-velvet"] {
+    --bg-color: #ffecec;
+    --display-bg: #fff5f6;
+    --button-bg: #ffd6d8;
+    --button-hover: #ffb3b6;
+    --operator-bg: #8b0000;
+    --operator-hover: #6a0000;
+    --equals-bg: #8b0000;
+    --equals-hover: #6a0000;
+    --text-color: #2b0b0b;
+    --border-color: #ffb6bb;
+    --shadow: rgba(139, 0, 0, 0.12);
+}
+
+[data-theme="blue-black"] {
+    --bg-color: #eaf2ff;
+    --display-bg: #f6f9ff;
+    --button-bg: #dbe9ff;
+    --button-hover: #c6ddff;
+    --operator-bg: #0b1b2b;
+    --operator-hover: #07121a;
+    --equals-bg: #0b1b2b;
+    --equals-hover: #07121a;
+    --text-color: #031022;
+    --border-color: #bcd7ff;
+    --shadow: rgba(11, 27, 43, 0.12);
+}
+
+[data-theme="yellow-orange"] {
+    --bg-color: #fff9e6;
+    --display-bg: #fffdf2;
+    --button-bg: #fff2bf;
+    --button-hover: #ffe58a;
+    --operator-bg: #ff6f00;
+    --operator-hover: #e65b00;
+    --equals-bg: #ff6f00;
+    --equals-hover: #e65b00;
+    --text-color: #3b2b00;
+    --border-color: #ffe59b;
+    --shadow: rgba(255, 111, 0, 0.12);
+}
+
+[data-theme="pink-velvet"] {
+    --bg-color: #fff0f6;
+    --display-bg: #fff6fb;
+    --button-bg: #ffdfee;
+    --button-hover: #ffc7e5;
+    --operator-bg: #800040;
+    --operator-hover: #5c0030;
+    --equals-bg: #800040;
+    --equals-hover: #5c0030;
+    --text-color: #2a021a;
+    --border-color: #ffb6d0;
+    --shadow: rgba(128, 0, 64, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.calculator {
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+.theme-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.theme-group {
+    display: flex;
+    gap: 8px;
+}
+
+.theme-left {
+    justify-content: flex-start;
+}
+
+.theme-right {
+    justify-content: flex-end;
+}
+
+.theme-btn {
+    background-color: var(--button-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.corner-themes .corner {
+    background-color: var(--button-bg);
+    padding: 6px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Layout wrapper: place theme buttons above the calculator, centered */
+.calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Theme buttons row above the calculator */
+.corner-themes {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+}
+
+.corner-themes .corner {
+    background-color: var(--button-bg);
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    min-width: 120px;
+    text-align: center;
+}
+
+.theme-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    background-color: var(--display-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: right;
+    padding: 0 10px;
+    color: var(--text-color);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background-color: var(--operator-bg);
+    color: white;
+}
+
+.operator:hover {
+    background-color: var(--operator-hover);
+}
+
+.equals {
+    background-color: var(--equals-bg);
+    color: white;
+    grid-column: span 2;
+}
+
+.equals:hover {
+    background-color: var(--equals-hover);
+}
+
+.scientific-toggle {
+    grid-column: span 2;
+}
+
+.scientific-buttons {
+    display: none;
+    grid-column: span 4;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.scientific-buttons.show {
+    display: grid;
+}
+
+.history {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.history h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+#history-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.history-item {
+    background-color: var(--button-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.history-item:hover {
+    background-color: var(--button-hover);
+}
+
+.clear-history {
+    width: 100%;
+    background-color: var(--operator-bg);
+    color: white;
+}
+
+.clear-history:hover {
+    background-color: var(--operator-hover);
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .btn {
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    #display {
+        height: 50px;
+        font-size: 20px;
+    }
+}
